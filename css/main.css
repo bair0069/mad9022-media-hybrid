@@ -1,6 +1,19 @@
-#song-art {
+#playing-song-art {
   border: 0.25rem solid #797979;
   width: 2rem;
+}
+
+.playlist-item {
+  display: flex;
+  gap: 1.5rem;
+}
+.playlist-item.active {
+  background-color: red;
+}
+.playlist-item img {
+  border: grey 0.15rem solid;
+  border-radius: 0.25rem;
+  width: 3rem;
 }
 
 /*# sourceMappingURL=main.css.map */

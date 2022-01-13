@@ -1,0 +1,13 @@
+
+.playlist-item {
+    display: flex;
+    gap:1.5rem;
+    &.active{
+        background-color:red;
+    }
+    img{
+        border:grey .15rem solid;
+        border-radius: .25rem;
+        width:3rem;
+    }
+}
