@@ -1,11 +1,56 @@
+button {
+  background-color: darkslategrey;
+  color: ghostwhite;
+}
+
+#player-area {
+  position: sticky;
+  z-index: 1000;
+  bottom: 0.25rem;
+  margin: 0;
+  background-color: rgba(233, 233, 245, 0.838);
+  border: lavender 0.15rem solid;
+}
+#player-area #visual {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#player-area #visual div {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+#player-area #controls {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
+
 #playing-song-art {
   border: 0.25rem solid #797979;
-  width: 2rem;
+  width: 5rem;
+}
+
+#playlist-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#playlist-container {
+  margin: 0;
+}
+#playlist-container #playlist {
+  width: 100%;
+  padding: 0rem;
+  margin: 0 auto;
 }
 
 .playlist-item {
+  border-bottom: grey 0.15rem solid;
   display: flex;
-  gap: 1.5rem;
+  justify-content: space-between;
 }
 .playlist-item.active {
   background-color: red;
@@ -14,6 +59,22 @@
   border: grey 0.15rem solid;
   border-radius: 0.25rem;
   width: 3rem;
+}
+
+.playlist-item:last-child {
+  border: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  max-width: 90vw;
 }
 
 /*# sourceMappingURL=main.css.map */
