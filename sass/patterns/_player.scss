@@ -1,28 +1,36 @@
 #player-area {
-    position: sticky;
-    z-index: 1000;
-    bottom:.25rem;
-    margin:0;
+    display:flex;
+    flex-direction: column;
     background-color: rgba(233, 233, 245, 0.838);
     border:lavender .15rem solid;
     #visual{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: flex-end;
         div{
             display: flex;
             flex-direction: column;
             padding:1rem;
         }
     }
+
+    #progress-bar {
+        &::after{
+            content:"00:00";
+        }
+    }
     #controls {
         display: flex;
-        gap:.25rem;
         justify-content: space-between;
+        span {
+            font-size:.85rem
+        }
     }
 }
 
 #playing-song-art {
-    border:.25rem solid rgb(121, 121, 121);
-    width:5rem;
+    display: flex;
+    max-width:50%;
+    padding:1rem;
 }

@@ -7,4 +7,21 @@ html{
 
 body {
     max-width:90vw;
+    margin:0 auto;
+    background-color: rgb(68, 68, 84);
+    color:white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1,h2,h3,h4,h5 {
+    margin:0;
+}
+
+
+
+@media only screen and (min-width: 45em) {
+    .music-body{
+    display:flex;
+    flex-flow:row wrap;
+    }
 }

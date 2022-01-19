@@ -1,13 +1,22 @@
+audio {
+  width: 50%;
+}
+
 button {
   background-color: darkslategrey;
   color: ghostwhite;
 }
 
-#player-area {
-  position: sticky;
-  z-index: 1000;
-  bottom: 0.25rem;
+.container {
+  display: flex;
+  flex-flow: row wrap;
   margin: 0;
+  width: 80%;
+}
+
+#player-area {
+  display: flex;
+  flex-direction: column;
   background-color: rgba(233, 233, 245, 0.838);
   border: lavender 0.15rem solid;
 }
@@ -15,21 +24,28 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
 }
 #player-area #visual div {
   display: flex;
   flex-direction: column;
   padding: 1rem;
 }
+#player-area #progress-bar::after {
+  content: "00:00";
+}
 #player-area #controls {
   display: flex;
-  gap: 0.25rem;
   justify-content: space-between;
+}
+#player-area #controls span {
+  font-size: 0.85rem;
 }
 
 #playing-song-art {
-  border: 0.25rem solid #797979;
-  width: 5rem;
+  display: flex;
+  max-width: 50%;
+  padding: 1rem;
 }
 
 #playlist-area {
@@ -49,6 +65,7 @@ button {
 
 .playlist-item {
   border-bottom: grey 0.15rem solid;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -75,6 +92,21 @@ html {
 
 body {
   max-width: 90vw;
+  margin: 0 auto;
+  background-color: #444454;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+@media only screen and (min-width: 45em) {
+  .music-body {
+    display: flex;
+    flex-flow: row wrap;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

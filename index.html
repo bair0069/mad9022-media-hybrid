@@ -13,57 +13,63 @@
         <h1>Username</h1>
     </header>
     <main>
-        <section id="playlist-area">
-            <div id="playlist-container">
-                <ol id="playlist">
-                    <li class="playlist-item active"><img src="./media/thumbnails/love.jpg" alt="a rose laying on pages of a book"> <h3>Love</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/relaxing.jpg" alt="a dock between mountains on a lake"> <h3>Relaxing</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/jazz.jpg" alt="A double bass"> <h3>The Jazz Piano</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/countryboy.jpg" alt="Wheat fields"> <h3>Countryboy</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/ukelele.jpg" alt="A Ukelele"> <h3>Ukelele</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/new-beginnings.jpg" alt="An hourglass in sand"> <h3>A New Beginning</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/instinct.jpg" alt="Waves of water"> <h3>Instinct</h3> <h3>Bensound</h3> </li>
-                    <li class="playlist-item"><img src="./media/thumbnails/creative-minds.jpg" alt="A hand holding a lightbulb"> <h3>Creative Minds</h3> <h3>Bensound</h3> </li>
-                </ol>
-            </div>
-        </section>
-        <section id="player-area">
-            <div id="player" class="is-playing">
-                <div id="visual">
-                    <img id="playing-song-art" src="./media/thumbnails/love.jpg" alt="current song">
-                    <div>
-                        <h3 id="artist">Bensound</h3>
-                        <h4 id="song">Love</h4>
+        <audio id="music-player" src="media/music/love.mp3" controls></audio>
+        <div class="container music-body">
+            <section id="player-area">
+                <div id="player" class="is-playing">
+                    <div id="visual">
+                        <img id="playing-song-art" src="./media/thumbnails/love.jpg" alt="current song">
+                        <div>
+                            <p id="artist">Bensound</p>
+                            <h4 id="song">Love</h4>
+                        </div>
                     </div>
-                    <div id="time-bar"></div>
+                    <div id="progress-bar">
+                        <label for="progress">00:00</label>
+                        <progress id="progress" max="100" value="20">
+                        <progress>  
+                    </div>
+                    </div>
+                    <div id="controls">     
+                        <button id="btnSkipBack" class="buttons">
+                            <span class="material-icons">skip_previous </span>
+                        </button>
+                        <button id="btnReplay10" class="buttons">
+                            <span class="material-icons">replay_10 </span>
+                        </button>
+                        <button id="btnPlay" class="buttons">
+                            <span class="material-icons">play_arrow </span>
+                        </button>
+                        <button id="btnPause" class="buttons">
+                            <span class="material-icons">pause </span>
+                        </button>
+                        <button id="btnStop" class="buttons">
+                            <span class="material-icons">stop </span>
+                        </button>
+                        <button id="btnFwd10" class="buttons">
+                            <span class="material-icons">forward_10 </span>
+                        </button>
+                        <button id="btnSkipForward" class="buttons">
+                            <span class="material-icons">skip_next </span>
+                        </button>
+                    </div>
+            </section>
+            <section id="playlist-area">
+                <div id="playlist-container">
+                    <ol id="playlist">
+                        <li class="playlist-item active"><img src="./media/thumbnails/love.jpg" alt="a rose laying on pages of a book"> <p>Love</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/relaxing.jpg" alt="a dock between mountains on a lake"> <p>Relaxing</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/jazz.jpg" alt="A double bass"> <p>The Jazz Piano</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/countryboy.jpg" alt="Wheat fields"> <p>Countryboy</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/ukelele.jpg" alt="A Ukelele"> <p>Ukelele</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/a-new-beginning.jpg" alt="An hourglass in sand"> <p>A New Beginning</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/instinct.jpg" alt="Waves of water"> <p>Instinct</p> <p>Bensound</p> </li>
+                        <li class="playlist-item"><img src="./media/thumbnails/creative-minds.jpg" alt="A hand holding a lightbulb"> <p>Creative Minds</p> <p>Bensound</p> </li>
+                    </ol>
                 </div>
-                <div id="controls">
-                    <button id="btnSkipBack" class="buttons">
-                        <span class="material-icons">skip_previous </span>
-                    </button>
-                    <button id="btnReplay10" class="buttons">
-                        <span class="material-icons">replay_10 </span>
-                    </button>
-                    <button id="btnPlay" class="buttons">
-                        <span class="material-icons">play_arrow </span>
-                    </button>
-                    <button id="btnPause" class="buttons">
-                        <span class="material-icons">pause </span>
-                    </button>
-                    <button id="btnStop" class="buttons">
-                        <span class="material-icons">stop </span>
-                    </button>
-                    <button id="btnFwd10" class="buttons">
-                        <span class="material-icons">forward_10 </span>
-                    </button>
-                    <button id="btnSkipForward" class="buttons">
-                        <span class="material-icons">skip_next </span>
-                    </button>
-                </div>
-                <audio id="music-player"></audio>
-            </div>
-
-        </section>
+            </section>
+        </div>
+        
     </main>
     <footer>
     </footer>
