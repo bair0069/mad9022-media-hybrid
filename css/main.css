@@ -17,52 +17,74 @@ body {
 
 /* - - - - - - - - - - - - - - - - - Font Styles - - - - - - - - - - - - - - - - - - - - - - - - */
 
-html {font-size: 100%;} /*16px*/
+html {
+    font-size: 100%;
+} /*16px*/
 
 body {
-  background: white;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
-  color: #000000;
+    background: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #000000;
 }
 
 p {margin-bottom: 1rem;}
 
 h1, h2, h3, h4, h5 {
-  margin:0;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 400;
-  line-height: 1.3;
+    margin:0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
 }
 
 h1 {
-  margin-top: 0;
-  font-size: 2.488rem;
+    margin-top: 0;
+    font-size: 2.488rem;
 }
 
-h2 {font-size: 2.074rem;}
+h2 {
+    font-size: 2.074rem;
+}
 
-h3 {font-size: 1.728rem;}
+h3 {
+    font-size: 1.728rem;
+}
 
-h4 {font-size: 1.44rem;}
+h4 {
+    font-size: 1.44rem;
+}
 
-h5 {font-size: 1.2rem;}
+h5 {
+    font-size: 1.2rem;
+}
 
 small, .text_small {font-size: 0.833rem;}
+
+.material-icons-outlined {
+    font-size: 1.5rem;
+}
 
 /* - - - - - - - - - - - - - - - - - Colors - - - - - - - - - - - - - - - - - - - - - - - - */
 :root {
     --water:#6A767C;
-    --wood:#644516;
+    --wood:#1d0c00;
     --stone:#A69C98;
-    --clouds:#C8C2C2;
+    --clouds:#f8ffff;
     --black:#111015;
+}
+
+/* - - - - - - - - - - - - - - - - - Utilities - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#audio-player {
+    display:none;
 }
 
 /* - - - - - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - - - - - - - - - */
 header {
-    background-color: var(--stone);
+    padding:0rem 0.5rem;
+    background-color: var(--water);
+    background: linear-gradient(var(--water),var(--stone));
 }
 
 header h1 {
@@ -72,21 +94,28 @@ header h1 {
 }
 /* - - - - - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/*  - - - - - - - - - Player - - - - - - - - - - - - - - */
-
 main{
     background-color: var(--water);
 }
+
+main img{
+    border-radius:.25rem;
+}
+/*  - - - - - - - - - Player - - - - - - - - - - - - - - */
+
 #player-area {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin:0;
     padding:1rem;
-    background-image: radial-gradient(rgb(107, 106, 106),black);
-    background-color: var(--wood);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("/media/thumbnails/love.jpg");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
     color:var(--clouds);
 }
+
 /* - - - - - - - - - - - Visual - - - - - - - - - -*/
 #visual {
     display:grid;
@@ -101,7 +130,7 @@ main{
 #playing-song-art {
     grid-area: art;
     justify-self: center;
-    width:min(40rem,100%);
+    width:min(10rem,100%);
 }
 
 #artist {
@@ -123,7 +152,9 @@ main{
 }
 
 #progress-bar progress {
-    /* background-color: var(--black); */
+    background-color: var(--black);
+    color:var(--clouds);
+    border:none;
 }
 
 #progress-bar::after {
@@ -134,37 +165,157 @@ main{
     content: "00:00";
 }
 
+progress {
+    height:.6rem;
+    margin-bottom:1.5rem;
+}
+
 /* - - - - - - - - - - - Controls - - - - - - - - - -*/
 
+#controls {
+    width: 100%;
+    display: grid;
+    grid-template-columns:repeat(7,1fr);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color:var(--clouds);
+    color:var(--black);
+    width:100%;
+    border-radius:.5rem;
+    border-style:ridge;
+    height: max(3rem,100%);
+    transition: .25s ease-out;
+}
+.buttons:active {
+    background-color:rgb(160, 160, 160);
+}
+.buttons:hover,.buttons:target {
+    cursor: pointer;
+    background-color:var(--black);
+    color:var(--clouds);
+}
 
 /* - - - - - - - - - - - Playlist - - - - - - - - - -*/
 
 #playlist-area {
-    background-color: var(--clouds);
+    background-color: var(--wood);
+    
 }
 #playlist {
+    overflow-y: scroll;
     margin:0 auto;
     padding:1rem;
     list-style: none;
 }
 
 .playlist-item {
+    background-color: var(--clouds);
     font-size: 1.15rem;
     border-bottom: solid.05rem var(--stone);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: center;
 }
+
+#playlist .active {
+    background-color:var(--water);
+    color:var(--clouds);
+}
+
 .playlist-item:last-child {
     border:none;
 }
 .playlist-item img {
-    width:min(5rem,100%);
+    width:min(8rem,100%);
 }
 .playlist-item .active img {
     width:min(8rem,100%);
 }
 
+.playlist-item p {
+    text-align: center;
+    margin:0 auto;
+}
+
 .playlist-artist {
     justify-self: flex-end;
     color:var(--black)
+}
+
+/* - - - - - - - - - - - - - - - - - Responsive Layouts - - - - - - - - - - - - - - - - - - - - - - - - */
+
+@media only screen and (min-width:45em) { /*- - - - - - - - - - - - Tablet Sizing - - - - - - - - - - */
+
+/* - - - - - - - - Font Styles - - - - - - - - -*/
+
+html {font-size: 120%;} /*16px*/
+
+.material-icons-outlined {
+    font-size: 1.5rem;
+}
+
+#playing-song-art {
+    width:min(100rem,100%);
+}
+    
+}
+@media only screen and (min-width:70em) { /*- - - - - - - - - - - - Desktop Sizing - - - - - - - - - - */
+
+/* - - - - - - - - Font Styles - - - - - - - - -*/
+
+html {font-size: 150%;} /*16px*/
+
+.material-icons-outlined {
+    font-size: 2rem;
+}
+/* - - - - - - - - - - - Header - - - - - - - - - - - - -*/
+
+header {
+    height:0rem;
+}
+
+header h1 {
+    display:block;
+    position:fixed;
+    top:0rem;
+    left:1rem;
+    z-index:1000;
+    color:var(--clouds);
+}
+
+    
+/* - - - - - - - - - - - Main - - - - - - - - - - - - -*/
+
+.music-body {
+    outline:solid black 1rem;
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+/* - - - - - - - - Player - - - - - - - - -*/
+
+#player-area {
+    align-items: center;
+    justify-content: space-around;
+}
+
+#visual {
+    gap:1rem;
+}
+
+/* - - - - - - - - Player - - - - - - - - -*/
+
+#playlist {
+    padding:0;
+    padding-right:0rem;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 }
