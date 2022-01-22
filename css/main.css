@@ -82,7 +82,7 @@ small, .text_small {
 /* - - - - - - - - - - - - - - - - - Utilities - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #audio-player {
-    display:none;
+    /* display:none; */
 }
 
 
@@ -142,6 +142,34 @@ main img {
     justify-self: center;
     width:min(10rem,100%);
 }
+
+#playing-song-art.active{
+    animation: 10s spin 2s normal forwards infinite;
+}
+
+@keyframes spin {
+    0%{ 
+        transform:  rotate(0turn)
+                    scale(100%);
+    }
+
+    25%{
+        transform:  rotate(.25turn)
+                    scale(65%)
+    }
+    50%{
+        transform:  rotate(.5turn)
+                    scale(50%)
+    }
+    75%{
+        transform:  rotate(.75turn)
+                    scale(65%)
+    }
+
+    100%{ transform:  rotate(1turn)
+                    scale(100%)}
+    }
+
 
 #artist {
     grid-area: Artist;
