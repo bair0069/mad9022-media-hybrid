@@ -2,6 +2,8 @@
 import{songs as songList}from "./songs.js";
 
 let albumArt = document.getElementById('playing-song-art');
+let artist = document.getElementById('artist')
+let song = document.getElementById('song')
 let audio = document.getElementById('audio-player');
 let playBtn = document.getElementById('btnPlay');
 let pauseBtn = document.getElementById('btnPause');
@@ -19,10 +21,15 @@ function showPlayBtn () {
 
 function updateSongInfo () {
     albumArt.setAttribute('src',songList[currentTrack].img);
+    song.textContent=`${songList[currentTrack].title}`;
+    artist.textContent=`${songList[currentTrack].artist}`
+}
+
+function stopAnimation () {
+    albumArt.classList.remove('active')
 }
 
 playBtn.addEventListener('click',()=>{ // Play selected song remove play button and display pause button
-    console.log(songList[currentTrack].src)
     playBtn.style.display='none'
     pauseBtn.style.display='inherit'
     audio.play()
@@ -35,22 +42,22 @@ pauseBtn.addEventListener('click',()=>{ // Pause selected song, display play, re
 
 stopBtn.addEventListener('click',()=>{ // Stop art spinning, remove pause, display play, reload audio
     showPlayBtn()
-    albumArt.classList.remove('active')
-   
+    stopAnimation()
     audio.load()
 })
 
-skip10Btn.addEventListener('click',()=> // Skip forward 10 seconds
-audio.currentTime+=10) 
+skip10Btn.addEventListener('click',()=> audio.currentTime+=10)  // Skip forward 10 seconds 
 
-back10Btn.addEventListener('click',()=> audio.currentTime-=10) // Skip Backward 10 seconds
+back10Btn.addEventListener('click',()=> audio.currentTime-=10)  // Skip Backward 10 seconds
 
 
 nextSong.addEventListener('click',() =>{ // Skip to next song
     updateSongInfo()
+    stopAnimation()
     showPlayBtn()
-    currentTrack+=1
     audio.setAttribute('src',songList[currentTrack].src)
+    console.log(songList[currentTrack].src)
+    currentTrack+=1
 })
 
 function toggleAnimation () {
