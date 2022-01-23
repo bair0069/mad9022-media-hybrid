@@ -144,7 +144,7 @@ main img {
 }
 
 #playing-song-art.active{
-    animation: 10s spin 2s normal forwards infinite;
+    animation: 10s spin .5s normal forwards infinite;
 }
 
 @keyframes spin {
@@ -196,11 +196,11 @@ main img {
 }
 
 #progress-bar::after {
-    content: "00:00";
+    content: attr(data-songLength);
 }
 
 #progress-bar::before {
-    content: "00:00";
+    content: attr(data-currentTime);
 }
 
 progress {
