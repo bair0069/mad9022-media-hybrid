@@ -1,19 +1,57 @@
+'use strict'
+import{songs as songList}from "./songs.js";
+
 let albumArt = document.getElementById('playing-song-art');
 let audio = document.getElementById('audio-player');
 let playBtn = document.getElementById('btnPlay');
 let pauseBtn = document.getElementById('btnPause');
 let stopBtn = document.getElementById('btnStop');
 let progressBar = document.getElementById('progress-bar')
+let skip10Btn = document.getElementById('btnFwd10')
+let back10Btn = document.getElementById('btnReplay10')
+let nextSong = document.getElementById('btnSkipForward')
+let currentTrack=0;
 
+function showPlayBtn () {
+    pauseBtn.style.display='none'
+    playBtn.style.display='unset'
+}
 
+function updateSongInfo () {
+    albumArt.setAttribute('src',songList[currentTrack].img);
+}
 
-playBtn.addEventListener('click',()=>
-    audio.play())
-pauseBtn.addEventListener('click',()=>
-    audio.pause())
-stopBtn.addEventListener('click',()=>{
+playBtn.addEventListener('click',()=>{ // Play selected song remove play button and display pause button
+    console.log(songList[currentTrack].src)
+    playBtn.style.display='none'
+    pauseBtn.style.display='inherit'
+    audio.play()
+})
+
+pauseBtn.addEventListener('click',()=>{ // Pause selected song, display play, remove pause.
+    showPlayBtn()
     audio.pause()
-    audio.load()})
+})
+
+stopBtn.addEventListener('click',()=>{ // Stop art spinning, remove pause, display play, reload audio
+    showPlayBtn()
+    albumArt.classList.remove('active')
+   
+    audio.load()
+})
+
+skip10Btn.addEventListener('click',()=> // Skip forward 10 seconds
+audio.currentTime+=10) 
+
+back10Btn.addEventListener('click',()=> audio.currentTime-=10) // Skip Backward 10 seconds
+
+
+nextSong.addEventListener('click',() =>{ // Skip to next song
+    updateSongInfo()
+    showPlayBtn()
+    currentTrack+=1
+    audio.setAttribute('src',songList[currentTrack].src)
+})
 
 function toggleAnimation () {
     if(albumArt.classList.contains("active")){
@@ -43,6 +81,7 @@ function updateTime () {
 function updateSongLength () {
     progressBar.setAttribute('data-songLength',secondsToMinutes(audio.duration))
 }
+
 
 
 export {toggleAnimation, audio, updateTime, updateSongLength}

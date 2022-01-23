@@ -1,5 +1,5 @@
-import {toggleAnimation, updateTime,updateSongLength} from './controls.js';
-import {audio} from './controls.js';
+import {toggleAnimation, updateTime, updateSongLength, audio} from './controls.js';
+
 
 
 
@@ -8,11 +8,12 @@ audio.addEventListener('play', (ev)=>{
     toggleAnimation()
     updateSongLength()
 })
-audio.addEventListener('pause',toggleAnimation)
 
-audio.addEventListener('durationchange',updateSongLength)
+audio.addEventListener('pause',toggleAnimation);
 
-audio.addEventListener('timeupdate',updateTime)
+audio.addEventListener('durationchange',updateSongLength);
+
+audio.addEventListener('timeupdate',updateTime);
 
 
 

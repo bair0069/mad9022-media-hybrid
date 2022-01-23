@@ -216,6 +216,10 @@ progress {
     grid-template-columns:repeat(7,1fr);
 }
 
+#btnPause {
+    display: none;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
