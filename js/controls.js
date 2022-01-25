@@ -1,6 +1,7 @@
 'use strict'
 import{songs as songList}from "./songs.js";
 
+let playerArea = document.getElementById('player-area')
 let albumArt = document.getElementById('playing-song-art');
 let artist = document.getElementById('artist')
 let song = document.getElementById('song')
@@ -12,14 +13,28 @@ let progressBar = document.getElementById('progress-bar')
 let skip10Btn = document.getElementById('btnFwd10')
 let back10Btn = document.getElementById('btnReplay10')
 let nextSong = document.getElementById('btnSkipForward')
+let previousSong= document.getElementById('btnSkipBack')
 let currentTrack=0;
+
+function switchSong() {
+    updateSongInfo()
+    stopAnimation()
+    showPlayBtn()
+    audio.setAttribute('src',songList[currentTrack].src)
+}
 
 function showPlayBtn () {
     pauseBtn.style.display='none'
     playBtn.style.display='unset'
 }
 
+/* - - - - - - - - -TODO :: Fix album art background to stop repeating -- - - - - - - - - - -  */
+/* - - - - - - - - -TODO :: Display seconds properly -- - - - - - - - - - -  */
+/* - - - - - - - - -TODO :: Display seconds properly -- - - - - - - - - - -  */
+
+
 function updateSongInfo () {
+    playerArea.style.background=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songList[currentTrack].img}")`
     albumArt.setAttribute('src',songList[currentTrack].img);
     song.textContent=`${songList[currentTrack].title}`;
     artist.textContent=`${songList[currentTrack].artist}`
@@ -50,14 +65,23 @@ skip10Btn.addEventListener('click',()=> audio.currentTime+=10)  // Skip forward 
 
 back10Btn.addEventListener('click',()=> audio.currentTime-=10)  // Skip Backward 10 seconds
 
-
 nextSong.addEventListener('click',() =>{ // Skip to next song
-    updateSongInfo()
-    stopAnimation()
-    showPlayBtn()
-    audio.setAttribute('src',songList[currentTrack].src)
-    console.log(songList[currentTrack].src)
+    if (currentTrack < songList.length){
+    switchSong()
     currentTrack+=1
+    console.log(currentTrack)
+
+    }
+})
+
+previousSong.addEventListener('click',() =>{ // Go back a song
+    if (currentTrack > 0){
+        switchSong()
+        currentTrack-=1
+        audio.play()
+        console.log(currentTrack)
+    }
+    else{}
 })
 
 function toggleAnimation () {
@@ -75,7 +99,6 @@ let seconds = Math.round((time-minutes*60));
 let timeConverted= `${minutes}:${seconds}`;
 return timeConverted
 }
-
 
 function updateTime () {
     let progress = document.getElementById('progress')

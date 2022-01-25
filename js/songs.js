@@ -20,7 +20,7 @@ export const songs = [
   {
     title: "Instinct",
     artist: "Bensound",
-    src: "./media/music/instinct,mp3",
+    src: "./media/music/instinct.mp3",
     img: "./media/thumbnails/instinct.jpg",
   },
   {

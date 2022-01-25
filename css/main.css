@@ -118,10 +118,10 @@ main img {
     align-items: center;
     margin:0;
     padding:1rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("/media/thumbnails/love.jpg");
-    background-position: center;
+    background-position:bottom;
     background-repeat:no-repeat;
     background-size:cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("/media/thumbnails/love.jpg");
     color:var(--clouds);
 }
 
@@ -217,7 +217,7 @@ progress {
 }
 
 #btnPause {
-    display: none;
+    /* display: none; */
 }
 
 .buttons {

@@ -4,7 +4,7 @@ import {toggleAnimation, updateTime, updateSongLength, audio} from './controls.j
 
 
 audio.addEventListener('play', (ev)=>{
-    console.log(audio.currentTime)
+    // console.log(audio.currentTime)
     toggleAnimation()
     updateSongLength()
 })
