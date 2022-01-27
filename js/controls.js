@@ -14,23 +14,29 @@ let skip10Btn = document.getElementById('btnFwd10')
 let back10Btn = document.getElementById('btnReplay10')
 let nextSong = document.getElementById('btnSkipForward')
 let previousSong= document.getElementById('btnSkipBack')
+let playlist = document.getElementById('playlist')
+let player = document.getElementById('player')
+let playSpan = document.getElementById('play-span')
 let currentTrack=0;
 
 function switchSong() {
     updateSongInfo()
     stopAnimation()
     showPlayBtn()
+    audio.play()
     audio.setAttribute('src',songList[currentTrack].src)
 }
 
 function showPlayBtn () {
-    pauseBtn.style.display='none'
-    playBtn.style.display='unset'
+    playSpan.textContent='play_arrow';
+}
+
+function showPauseBtn() {
+playSpan.textContent='pause';
 }
 
 /* - - - - - - - - -TODO :: Fix album art background to stop repeating -- - - - - - - - - - -  */
-/* - - - - - - - - -TODO :: Display seconds properly -- - - - - - - - - - -  */
-/* - - - - - - - - -TODO :: Display seconds properly -- - - - - - - - - - -  */
+/* - - - - - - - - -TODO :: Display active tracks -- - - - - - - - - - -  */
 
 
 function updateSongInfo () {
@@ -44,21 +50,26 @@ function stopAnimation () {
     albumArt.classList.remove('active')
 }
 
+
+
 playBtn.addEventListener('click',()=>{ // Play selected song remove play button and display pause button
-    playBtn.style.display='none'
-    pauseBtn.style.display='inherit'
-    audio.play()
+    if(player.classList.contains('is-playing')){
+        player.classList.remove('is-playing')
+        showPlayBtn()
+        audio.pause()
+    }
+    else{player.classList.add('is-playing')
+    showPauseBtn()
+    audio.play()}
 })
 
-pauseBtn.addEventListener('click',()=>{ // Pause selected song, display play, remove pause.
-    showPlayBtn()
-    audio.pause()
-})
+
 
 stopBtn.addEventListener('click',()=>{ // Stop art spinning, remove pause, display play, reload audio
     showPlayBtn()
-    stopAnimation()
-    audio.load()
+    albumArt.classList.remove("active")
+    audio.currentTime=0;
+    audio.pause()
 })
 
 skip10Btn.addEventListener('click',()=> audio.currentTime+=10)  // Skip forward 10 seconds 
@@ -68,16 +79,22 @@ back10Btn.addEventListener('click',()=> audio.currentTime-=10)  // Skip Backward
 nextSong.addEventListener('click',() =>{ // Skip to next song
     if (currentTrack < songList.length){
     switchSong()
+    removeActiveTrack(currentTrack)
+    console.log(currentTrack)
     currentTrack+=1
+    changeActiveTrack(currentTrack)
     console.log(currentTrack)
 
     }
+    return currentTrack
 })
 
 previousSong.addEventListener('click',() =>{ // Go back a song
     if (currentTrack > 0){
         switchSong()
+        removeActiveTrack(currentTrack)
         currentTrack-=1
+        changeActiveTrack(currentTrack)
         audio.play()
         console.log(currentTrack)
     }
@@ -96,7 +113,7 @@ function toggleAnimation () {
 function secondsToMinutes (time) {
 let minutes = Math.floor(time/60);
 let seconds = Math.round((time-minutes*60));
-let timeConverted= `${minutes}:${seconds}`;
+let timeConverted= `${minutes}:${seconds.toString().padStart(2,'0')}`;
 return timeConverted
 }
 
@@ -112,6 +129,15 @@ function updateSongLength () {
     progressBar.setAttribute('data-songLength',secondsToMinutes(audio.duration))
 }
 
+function changeActiveTrack (currentTrack) {
+    console.log(playlistSongs[currentTrack])
+    playlistSongs[currentTrack].classList.add('active')
+    audio.play()
+}
+
+function removeActiveTrack (currentTrack) {
+    playlistSongs[currentTrack].classList.remove('active')
+}
 
 
 export {toggleAnimation, audio, updateTime, updateSongLength}
