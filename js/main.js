@@ -1,7 +1,9 @@
-import {toggleAnimation, updateTime, updateSongLength, audio} from './controls.js';
+import {createPlaylist, toggleAnimation, stopAnimation, updateTime, updateSongLength, audio} from './controls.js';
+import{songs} from './songs.js';
 
 
 
+createPlaylist(songs)
 
 audio.addEventListener('play', (ev)=>{
     // console.log(audio.currentTime)
@@ -9,7 +11,7 @@ audio.addEventListener('play', (ev)=>{
     updateSongLength()
 })
 
-audio.addEventListener('pause',toggleAnimation);
+audio.addEventListener('pause',stopAnimation);
 
 audio.addEventListener('durationchange',updateSongLength);
 

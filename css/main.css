@@ -121,7 +121,7 @@ main img {
     background-position:bottom;
     background-repeat:no-repeat;
     background-size:cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("/media/thumbnails/love.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("./media/thumbnails/love.jpg");
     color:var(--clouds);
 }
 
@@ -251,6 +251,7 @@ progress {
     list-style: none;
 }
 
+
 .playlist-item {
     background-color: var(--clouds);
     font-size: 1.15rem;
@@ -260,7 +261,7 @@ progress {
     align-items: center;
 }
 
-#playlist .active {
+.playlist-item.active {
     background-color:var(--water);
     color:var(--clouds);
 }
