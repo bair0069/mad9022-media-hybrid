@@ -3,7 +3,7 @@
 import{songs as songList}from "./songs.js";
 
 /* - - - - - - - - -TODO :: Fix album art background to stop repeating -- - - - - - - - - - -  */
-/* - - - - - - - - -TODO :: Make Stop button stop art -- - - - - - - - - - -  */
+/* - - - - - - - - -TODO :: Use less event listeners -- - - - - - - - - - -  */
 
 
 let playerArea = document.getElementById('player-area')
@@ -11,20 +11,46 @@ let albumArt = document.getElementById('playing-song-art');
 let artist = document.getElementById('artist')
 let song = document.getElementById('song')
 let audio = document.getElementById('audio-player');
-let playPauseBtn = document.getElementById('btnPlay');
-let stopBtn = document.getElementById('btnStop');
 let progressBar = document.getElementById('progress-bar')
-let skip10Btn = document.getElementById('btnFwd10')
-let back10Btn = document.getElementById('btnReplay10')
-let nextSong = document.getElementById('btnSkipForward')
-let previousSong= document.getElementById('btnSkipBack')
 let playlist = document.getElementById('playlist')
 let playlistSongs = document.getElementsByClassName('playlist-item')
 let player = document.getElementById('player')
 let playSpan = document.getElementById('play-span')
+let controls = document.getElementById('controls')
 let currentTrack=0;
 
-playPauseBtn.addEventListener('click',()=>{ // Play selected song remove play button and display pause button
+
+/* - - - - - - - - - - - - - - Controls - - - - - - - - - - - - - - */
+
+controls.addEventListener('click', (ev) => { // one event listener for all controls
+    let target = ev.target;
+    let btn = target.closest('button').getAttribute('id')
+//"btnSkipBack""btnReplay10""btnPlay""btnStop""btnFwd10""btnSkipForward"
+    switch (btn) {
+        case "btnSkipBack" :
+            previousSong()
+        break;
+        case "btnReplay10" :
+            back10()
+        break;
+        case "btnPlay" :
+            playPause()
+        break;
+        case "btnStop" :
+            stopButton()
+        break;
+        case "btnFwd10" :
+            skip10()
+        break;
+        case "btnSkipForward" :
+            nextSong()
+        break;
+    default:break;
+    }
+})
+
+
+function playPause () { // Play selected song remove play button and display pause button
     if(player.classList.contains('is-playing')){
         player.classList.remove('is-playing')
         showPlayBtn()
@@ -35,19 +61,19 @@ playPauseBtn.addEventListener('click',()=>{ // Play selected song remove play bu
     changeActiveTrack()
     audio.play()}
 
-})
+}
 
-stopBtn.addEventListener('click',()=>{ // Stop art spinning, remove pause, display play, reload audio
+function stopButton(){ // Stop art spinning, remove pause, display play, reload audio
     audio.currentTime=0;
     audio.pause()
     showPlayBtn()
-})
+}
 
-skip10Btn.addEventListener('click',()=> audio.currentTime+=10)  // Skip forward 10 seconds 
+function skip10 () {audio.currentTime+=10}  // Skip forward 10 seconds 
 
-back10Btn.addEventListener('click',()=> audio.currentTime-=10)  // Skip Backward 10 seconds
+function back10() {audio.currentTime-=10} // Skip Backward 10 seconds
 
-nextSong.addEventListener('click',function songEnded(){ // Skip to next song
+function nextSong(){ // Skip to next song
     if (currentTrack < songList.length){
     removeActiveTrack(currentTrack)
     switchSong()
@@ -59,9 +85,9 @@ nextSong.addEventListener('click',function songEnded(){ // Skip to next song
     }
     showPauseBtn()
     return currentTrack
-})
+}
 
-previousSong.addEventListener('click',() =>{ // Go back a song
+function previousSong(){ // Go back a song
     if (currentTrack > 0){
         switchSong()
         removeActiveTrack(currentTrack)
@@ -71,7 +97,7 @@ previousSong.addEventListener('click',() =>{ // Go back a song
         console.log(currentTrack)
     }
     else{}
-})
+}
 
 /* - -- - - - - - - - - - Toggle play button - - - - - - - - - - -*/
 
@@ -82,8 +108,6 @@ function showPlayBtn () { // display the play button
 function showPauseBtn() { // display the pause button
 playSpan.textContent='pause';
 }
-
-
 
 function switchSong() {
     updateSongInfo()
@@ -105,7 +129,6 @@ function changeActiveTrack () {     // add active to current track
 function removeActiveTrack () { // remove active from old current track
     playlistSongs[currentTrack].classList.remove('active')
 }
-
 
 function secondsToMinutes (time) {  // convert time to seconds and minutes
 let minutes = Math.floor(time/60);
@@ -138,7 +161,6 @@ function updateSongInfo () { //update player background, song title, artist
 function stopAnimation () { // remove active class from albumArt
     albumArt.classList.remove('active')
 }
-
 
 function toggleAnimation () {  // remove or add active class to albumArt
     if(albumArt.classList.contains("active")){
