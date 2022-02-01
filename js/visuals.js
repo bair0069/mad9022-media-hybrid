@@ -1,5 +1,7 @@
-import{songs as songList}from "./songs.js";
+import{songs}from "./songs.js";
 
+let playlist = document.getElementById('playlist')
+let songIndexes = songs.map((item) => {return item.title})
 let playerArea = document.getElementById('player-area')
 let albumArt = document.getElementById('playing-song-art');
 let artist = document.getElementById('artist')
@@ -23,7 +25,7 @@ function switchSong(index) {
     updateSongInfo(index)
     changeActiveTrack(index)
     stopAnimation()
-    audio.setAttribute('src',songList[currentTrack].src)
+    audio.setAttribute('src',songs[currentTrack].src)
     audio.play()
 }
 
@@ -37,7 +39,7 @@ function changeActiveTrack (index) {     // add active to current track
     audio.load()
 }
 
-function removeActiveTrack (index) { // remove active from old current track
+function removeActiveTrack(index) { // remove active from old current track
     playlistSongs[index].classList.remove('active')
 }
 
@@ -61,10 +63,10 @@ function updateSongLength () { //update the length of the song when songs change
 }
 
 function updateSongInfo (index) { //update player background, song title, artist
-    playerArea.style.background=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songList[index].img}")`
-    albumArt.setAttribute('src',songList[index].img);
-    song.textContent=`${songList[index].title}`;
-    artist.textContent=`${songList[index].artist}`
+    playerArea.style.background=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songs[index].img}")`
+    albumArt.setAttribute('src',songs[index].img);
+    song.textContent=`${songs[index].title}`;
+    artist.textContent=`${songs[index].artist}`
 }
 
 
@@ -81,5 +83,43 @@ function toggleAnimation () {  // remove or add active class to albumArt
     };
 }
 
+function createPlaylist(array) {
+    playlist.textContent=""
+    array.forEach((item)=>{
+        let li = document.createElement('li')
+        li.setAttribute('data-src',item.src);
+        li.setAttribute('class', 'playlist-item')
+        li.setAttribute('data-title',item.title)
+        li.innerHTML = `<img src="${item.img}" alt="Cover art of ${item.title}"> <p>${item.title}</p> <p class="playlist-artist">${item.artist}</p>`
+        playlist.append(li)
+    })
+}
+
+playlist.addEventListener('click',(ev)=>{
+    let target = ev.target;
+    let song = target.closest('.playlist-item')
+    let source = song.getAttribute('data-src')
+    let songTitle = song.getAttribute('data-title')
+    console.log(songIndexes)
+    console.log(`'${songTitle}'`)
+    console.log(songIndexes.indexOf(songTitle))
+    
+    
+    if(song.classList.contains('active')){
+        audio.currentTime=0;
+        audio.play();
+    }
+    else{
+        console.log(song.getAttribute('data-src'))
+        audio.setAttribute('src',source)
+        removeActiveTrack(currentTrack)
+        currentTrack = songIndexes.indexOf(songTitle)
+        switchSong(currentTrack)
+        audio.play()}
+
+
+})
+
+
 export {stopAnimation, toggleAnimation, updateSongInfo, updateSongLength, updateTime, removeActiveTrack, changeActiveTrack, switchSong, 
-showPauseBtn, showPlayBtn}
+showPauseBtn, showPlayBtn, createPlaylist}

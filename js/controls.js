@@ -72,11 +72,11 @@ function back10() {audio.currentTime-=10} // Skip Backward 10 seconds
 
 function nextSong(){ // Skip to next song
     if (currentTrack < songList.length){
-    removeActiveTrack()
-    switchSong()
+    removeActiveTrack(currentTrack)
+    switchSong(currentTrack)
     console.log(currentTrack)
     currentTrack+=1
-    changeActiveTrack()
+    changeActiveTrack(currentTrack)
     console.log(currentTrack)
 
     }
@@ -86,10 +86,10 @@ function nextSong(){ // Skip to next song
 
 function previousSong(){ // Go back a song
     if (currentTrack > 0){
-        switchSong()
-        removeActiveTrack()
+        switchSong(currentTrack)
+        removeActiveTrack(currentTrack)
         currentTrack-=1
-        changeActiveTrack()
+        changeActiveTrack(currentTrack)
         audio.play()
         console.log(currentTrack)
     }
