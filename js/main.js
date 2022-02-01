@@ -1,5 +1,6 @@
-import {createPlaylist, toggleAnimation, stopAnimation, updateTime, updateSongLength, audio} from './controls.js';
+import {toggleAnimation, stopAnimation, updateTime, updateSongLength, audio} from './controls.js';
 import{songs} from './songs.js';
+import{createPlaylist} from './playlist.js'
 
 
 
