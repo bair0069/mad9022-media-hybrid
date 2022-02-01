@@ -3,6 +3,8 @@ import{songs} from './songs.js';
 import{createPlaylist} from './playlist.js'
 
 
+function init(){
+
 
 createPlaylist(songs)
 
@@ -18,8 +20,9 @@ audio.addEventListener('durationchange',updateSongLength);
 
 audio.addEventListener('timeupdate',updateTime);
 
+}
 
-
+document.addEventListener('DOMContentLoaded', init)
 
 
 

@@ -3,6 +3,7 @@
 import{songs as songList}from "./songs.js";
 import{stopAnimation, toggleAnimation, updateSongInfo, updateSongLength, updateTime, removeActiveTrack, changeActiveTrack, switchSong,showPauseBtn, showPlayBtn} from './visuals.js';
 
+
 /* - - - - - - - - -TODO :: Fix album art background to stop repeating -- - - - - - - - - - -  */
 /* - - - - - - - - -TODO :: Fix music playback -- - - - - - - - - - -  */
 /* - - - - - - - - -TODO :: Fix album art background to stop repeating -- - - - - - - - - - -  */
@@ -13,7 +14,7 @@ let audio = document.getElementById('audio-player');
 let playlist = document.getElementById('playlist')
 let player = document.getElementById('player')
 let controls = document.getElementById('controls')
-let currentTrack=0;
+let currentTrack=0 ;
 
 
 /* - - - - - - - - - - - - - - Controls - - - - - - - - - - - - - - */
@@ -55,7 +56,6 @@ function playPause () { // Play selected song remove play button and display pau
     else{player.classList.add('is-playing')
     audio.play()}
     showPauseBtn()
-    // changeActiveTrack()
 
 }
 
@@ -96,16 +96,6 @@ function previousSong(){ // Go back a song
     else{}
 }
 
-function createPlaylist(array) {
-    playlist.textContent=""
-    array.forEach((item)=>{
-        let li = document.createElement('li')
-        li.setAttribute('data-src',item.src);
-        li.setAttribute('class', 'playlist-item')
-        li.innerHTML = `<img src="${item.img}" alt="Cover art of ${item.title}"> <p>${item.title}</p> <p class="playlist-artist">${item.artist}</p>`
-        playlist.append(li)
-    })
-}
 
 
-export {toggleAnimation, stopAnimation, audio, updateTime, updateSongLength,createPlaylist}
+export {toggleAnimation, stopAnimation, audio, updateTime, updateSongLength,currentTrack}

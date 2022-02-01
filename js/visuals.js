@@ -1,15 +1,14 @@
+import{songs as songList}from "./songs.js";
 
 let playerArea = document.getElementById('player-area')
 let albumArt = document.getElementById('playing-song-art');
 let artist = document.getElementById('artist')
 let song = document.getElementById('song')
 let progressBar = document.getElementById('progress-bar')
-let playlist = document.getElementById('playlist')
 let playlistSongs = document.getElementsByClassName('playlist-item')
 let playSpan = document.getElementById('play-span')
 let audio = document.getElementById('audio-player');
 let currentTrack=0;
-
 
 function showPlayBtn () { // display the play button
     playSpan.textContent='play_arrow';
@@ -19,26 +18,27 @@ function showPauseBtn() { // display the pause button
 playSpan.textContent='pause';
 }
 
-function switchSong() {
-    updateSongInfo()
-    changeActiveTrack()
+function switchSong(index) {
+    showPauseBtn()
+    updateSongInfo(index)
+    changeActiveTrack(index)
     stopAnimation()
-    audio.play()
     audio.setAttribute('src',songList[currentTrack].src)
+    audio.play()
 }
 
 
 /*  - - - - - - - update song information and player information - - - - -  */
 
-function changeActiveTrack () {     // add active to current track 
-    playlistSongs[currentTrack].classList.add('active')
+function changeActiveTrack (index) {     // add active to current track 
+    playlistSongs[index].classList.add('active')
     console.log(playlistSongs)
-    audio.setAttribute('src',playlistSongs[currentTrack].src)
+    audio.setAttribute('src',playlistSongs[index].src)
     audio.load()
 }
 
-function removeActiveTrack () { // remove active from old current track
-    playlistSongs[currentTrack].classList.remove('active')
+function removeActiveTrack (index) { // remove active from old current track
+    playlistSongs[index].classList.remove('active')
 }
 
 function secondsToMinutes (time) {  // convert time to seconds and minutes
@@ -60,11 +60,11 @@ function updateSongLength () { //update the length of the song when songs change
     progressBar.setAttribute('data-songLength',secondsToMinutes(audio.duration))
 }
 
-function updateSongInfo () { //update player background, song title, artist
-    playerArea.style.background=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songList[currentTrack].img}")`
-    albumArt.setAttribute('src',songList[currentTrack].img);
-    song.textContent=`${songList[currentTrack].title}`;
-    artist.textContent=`${songList[currentTrack].artist}`
+function updateSongInfo (index) { //update player background, song title, artist
+    playerArea.style.background=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songList[index].img}")`
+    albumArt.setAttribute('src',songList[index].img);
+    song.textContent=`${songList[index].title}`;
+    artist.textContent=`${songList[index].artist}`
 }
 
 
