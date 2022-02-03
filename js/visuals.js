@@ -1,4 +1,5 @@
 import{songs}from "./songs.js";
+import {playPause} from './controls.js'
 
 let playlist = document.getElementById('playlist')
 let songIndexes = songs.map((item) => {return item.title})
@@ -10,7 +11,7 @@ let progressBar = document.getElementById('progress-bar')
 let playlistSongs = document.getElementsByClassName('playlist-item')
 let playSpan = document.getElementById('play-span')
 let audio = document.getElementById('audio-player');
-let currentTrack=0;
+let currentTrack="";
 
 function showPlayBtn () { // display the play button
     playSpan.textContent='play_arrow';
@@ -21,9 +22,10 @@ playSpan.textContent='pause';
 }
 
 function switchSong(index) {
-    showPauseBtn()
+    removeActiveTrack()
+    playPause()
     updateSongInfo(index)
-    changeActiveTrack(index)
+    
     stopAnimation()
     audio.setAttribute('src',songs[currentTrack].src)
     audio.play()
@@ -32,15 +34,17 @@ function switchSong(index) {
 
 /*  - - - - - - - update song information and player information - - - - -  */
 
-function changeActiveTrack (index) {     // add active to current track 
+async function changeActiveTrack (index) {     // add active to current track 
+    await audio.setAttribute('src',playlistSongs[index].src)
     playlistSongs[index].classList.add('active')
-    console.log(playlistSongs)
-    audio.setAttribute('src',playlistSongs[index].src)
-    audio.load()
+    playPause()
+    
 }
 
-function removeActiveTrack(index) { // remove active from old current track
-    playlistSongs[index].classList.remove('active')
+function removeActiveTrack() { // remove active from old current track
+let oldTrack = document.querySelector('.playlist-item.active')
+if(oldTrack){
+    oldTrack.classList.remove('active')}
 }
 
 function secondsToMinutes (time) {  // convert time to seconds and minutes
@@ -63,7 +67,8 @@ function updateSongLength () { //update the length of the song when songs change
 }
 
 function updateSongInfo (index) { //update player background, song title, artist
-    playerArea.style.background=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songs[index].img}")`
+    changeActiveTrack(index)
+    playerArea.style.backgroundImage=`linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("${songs[index].img}")`
     albumArt.setAttribute('src',songs[index].img);
     song.textContent=`${songs[index].title}`;
     artist.textContent=`${songs[index].artist}`
@@ -71,6 +76,7 @@ function updateSongInfo (index) { //update player background, song title, artist
 
 
 function stopAnimation () { // remove active class from albumArt
+    player.classList.remove('is-playing')
     albumArt.classList.remove('active')
 }
 
@@ -105,18 +111,12 @@ playlist.addEventListener('click',(ev)=>{
     console.log(songIndexes.indexOf(songTitle))
     
     
-    if(song.classList.contains('active')){
-        audio.currentTime=0;
-        audio.play();
-    }
-    else{
+
         console.log(song.getAttribute('data-src'))
         audio.setAttribute('src',source)
-        removeActiveTrack(currentTrack)
         currentTrack = songIndexes.indexOf(songTitle)
         switchSong(currentTrack)
-        audio.play()}
-
+        audio.play()
 
 })
 

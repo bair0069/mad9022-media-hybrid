@@ -50,19 +50,19 @@ controls.addEventListener('click', (ev) => { // one event listener for all contr
 function playPause () { // Play selected song remove play button and display pause button
     if(player.classList.contains('is-playing')){
         audio.pause()
-        player.classList.remove('is-playing')
         showPlayBtn()
+        player.classList.remove('is-playing')
     }
     else{player.classList.add('is-playing')
-    audio.play()}
     showPauseBtn()
+    audio.play()}
 
 }
 
 function stopButton(){ // Stop art spinning, remove pause, display play, reload audio
+    audio.pause()
     stopAnimation()
     audio.currentTime=0;
-    audio.pause()
     showPlayBtn()
 }
 
@@ -98,4 +98,4 @@ function previousSong(){ // Go back a song
 
 
 
-export {toggleAnimation, stopAnimation, audio, updateTime, updateSongLength,currentTrack}
+export {toggleAnimation, stopAnimation, audio, updateTime, updateSongLength,currentTrack, playPause}
