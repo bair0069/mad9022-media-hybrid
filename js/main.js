@@ -1,18 +1,28 @@
-import {toggleAnimation, stopAnimation, updateTime, updateSongLength, audio} from './controls.js';
+import {toggleAnimation, stopAnimation, updateTime, updateSongLength, createPlaylist,audio, currentTrack} from './controls.js';
 import{songs} from './songs.js';
-import{createPlaylist} from './visuals.js'
+import{ updateSongInfo} from './visuals.js'
 
+
+/* - - - - - - - - - - - - - - - ******* TODO********* - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* 
+- - - - - - - - - - -  Make pause work after skipping  - - - - - - - - - 
+ - - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
+ - - - - - - - - - - -  Custom Colour progress bar  - - - - - - - - - 
+*/
+function playSong(){ // add event listeners
+    toggleAnimation()
+    updateSongLength()
+}
 
 function init(){
 
 
-createPlaylist(songs)
 
-audio.addEventListener('play', (ev)=>{
-    // console.log(audio.currentTime)
-    toggleAnimation()
-    updateSongLength()
-})
+createPlaylist(songs)  // load playlist
+updateSongInfo(currentTrack) //update album art and song source
+
+
+audio.addEventListener('play', playSong)
 
 audio.addEventListener('pause',stopAnimation);
 
