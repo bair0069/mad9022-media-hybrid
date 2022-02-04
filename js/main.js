@@ -4,17 +4,16 @@ import{ updateSongInfo} from './visuals.js'
 
 
 /* - - - - - - - - - - - - - - - ******* TODO********* - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* 
-- - - - - - - - - - -  Make pause work after skipping  - - - - - - - - - 
+/*  
  - - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
  - - - - - - - - - - -  Custom Colour progress bar  - - - - - - - - - 
 */
-function playSong(){ // add event listeners
+function playSong(){
     toggleAnimation()
     updateSongLength()
 }
 
-function init(){
+function init(){ // add event listeners to audio
 
 
 
