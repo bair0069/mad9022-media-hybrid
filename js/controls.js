@@ -7,14 +7,30 @@ let audio = document.getElementById('audio-player');
 let player = document.getElementById('player')
 let controls = document.getElementById('controls')
 let currentTrack = 0;
+let progressBar = document.getElementById('progress-bar')
+
 ;
 
 
 /* - - - - - - - - - - - - - - Controls - - - - - - - - - - - - - - */
 
-window.addEventListener('keydown',(ev)=>{
+window.addEventListener('keydown',(ev)=>{ // one event listener for the 
     ev.preventDefault()
     let keyPushed = ev.key
+    console.log(keyPushed)
+
+    switch (keyPushed) {
+        case 'Enter': stopButton()
+        break;
+        case ' ': playPause()
+            break;
+        case 'ArrowRight':
+            nextSong()
+            break;
+        case 'ArrowLeft' :
+            previousSong()
+            break;
+    }
 })
 
 controls.addEventListener('click', (ev) => { // one event listener for all controls
@@ -23,7 +39,7 @@ controls.addEventListener('click', (ev) => { // one event listener for all contr
 //"btnSkipBack""btnReplay10""btnPlay""btnStop""btnFwd10""btnSkipForward"
     switch (btn) {
         case "btnSkipBack" :
-           previousSong()
+            previousSong()
         break;
         case "btnReplay10" :
             back10()
@@ -113,4 +129,4 @@ playlist.addEventListener('click',(ev)=>{ // add eventListener to playlist items
 
 
 
-export {toggleAnimation, stopAnimation, audio, updateTime,createPlaylist, updateSongLength,currentTrack, playPause,player}
+export {toggleAnimation, stopAnimation, audio, updateTime,createPlaylist, updateSongLength,currentTrack, playPause,player,nextSong}
