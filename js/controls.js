@@ -18,6 +18,7 @@ let currentTrack = 0;
 //  - - - - - - - -Keyboard key listeners- - - - - 
 
 window.addEventListener('keydown',(ev)=>{ // listen for key presses in the window
+    
     ev.preventDefault()
     let keyPushed = ev.key
     console.log(keyPushed)
@@ -132,15 +133,17 @@ function nextSong() { // go forward a song
 
 
 function createPlaylist(array) { // create song playlist in html from data in songs.js
-    playlist.textContent=""                         //clear playlist
+    playlist.textContent=""
+    let df = document.createDocumentFragment()                       //clear playlist
     array.forEach((item)=>{                         // for each item in songs create an li
         let li = document.createElement('li')   
         li.setAttribute('data-src',item.src);       // store the song source for extraction later
         li.setAttribute('data-title',item.title)    // store the song title for extraction later
         li.setAttribute('class', 'playlist-item')   // add the playlist-item class to the li
         li.innerHTML = `<img src="${item.img}" alt="Cover art of ${item.title}"> <p>${item.title}</p> <p class="playlist-artist">${item.artist}</p>` 
-        playlist.append(li)                         // put the li into the playlist
+        df.append(li)                         // put the li into the playlist
     })
+    playlist.append(df)
 }
 
 

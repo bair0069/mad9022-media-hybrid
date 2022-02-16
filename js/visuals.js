@@ -14,6 +14,7 @@ let playSpan = document.getElementById('play-span')
 let audio = document.getElementById('audio-player');
 
 
+
 /* - - - - - - - - - - - - - - Visual Functions - - - - - - - - - - - - - - */
 
 //  - - - - - Play/Pause display functions - - - - - -
