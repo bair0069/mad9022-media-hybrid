@@ -185,7 +185,7 @@ main img {
 
 #progress-bar {
     display:flex;
-    justify-self: center;
+    justify-self: space-between;
     grid-area: Bar;
 }
 
@@ -196,11 +196,16 @@ main img {
 }
 
 #progress-bar::after {
-    content: attr(data-songLength);
+    position: relative;
+    padding-left:.5rem;
+    content:attr(data-songLength);
 }
 
 #progress-bar::before {
-    content: attr(data-currentTime);
+    width:1rem;
+    position: relative;
+    right:1rem; 
+    content:attr(data-currentTime)
 }
 
 progress {

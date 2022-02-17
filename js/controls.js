@@ -10,8 +10,6 @@ let player = document.getElementById('player')
 let controls = document.getElementById('controls')
 let currentTrack = 0;
 
-;
-
 
 /* - - - - - - - - - - - - - - Event Listeners - - - - - - - - - - - - - - */
 
