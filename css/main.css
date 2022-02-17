@@ -204,7 +204,7 @@ main img {
 #progress-bar::before {
     width:1rem;
     position: relative;
-    right:1rem; 
+    right:1.25rem; 
     content:attr(data-currentTime)
 }
 
