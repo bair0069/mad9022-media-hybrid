@@ -5,7 +5,7 @@ import{ updateSongInfo} from './visuals.js'
 
 
 
-/* - - - - - - - - - - - - - - - ******* TODO********* - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - ******* TODO:********* - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  
  - - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
  - - - - - - - - - - -  Custom Colour progress bar  - - - - - - - - - 

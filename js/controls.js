@@ -11,6 +11,8 @@ let controls = document.getElementById('controls')
 let currentTrack = 0;
 
 
+
+
 /* - - - - - - - - - - - - - - Event Listeners - - - - - - - - - - - - - - */
 
 //  - - - - - - - -Keyboard key listeners- - - - - 
@@ -104,10 +106,10 @@ function skip10 () {audio.currentTime+=10}  // Skip forward 10 seconds
 function back10() {audio.currentTime-=10} // Skip Backward 10 seconds
 
 function previousSong(){ // go back a song.
-    if(currentTrack===0){}
-    else{
-        currentTrack-=1
-        switchSong(currentTrack)//update active item, and play new song (full comments in visuals.js line 32)
+    if(currentTrack!==0){
+        currentTrack -= 1
+        switchSong(currentTrack)
+        //update active item, and play new song (full comments in visuals.js line 32)
     }
     audio.currentTime=0;
     

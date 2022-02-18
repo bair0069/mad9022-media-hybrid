@@ -91,7 +91,7 @@ function toggleAnimation () {  // remove or add active class to albumArt
     }
     else{
     albumArt.classList.add("active")
-    };
+    }
 }
 
 
