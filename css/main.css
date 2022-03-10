@@ -82,7 +82,7 @@ small, .text_small {
 /* - - - - - - - - - - - - - - - - - Utilities - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #audio-player {
-    display:none;
+    /* display:none; */
 }
 
 
