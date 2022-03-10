@@ -15,14 +15,15 @@
     <main>
         <div class="container music-body">
             <section id="player-area">
-                <div id="player" class="is-playing">
+                <div id="player">
                     <div id="visual">
-                        <img id="playing-song-art" src="./media/thumbnails/love.jpg" alt="current song">
+                        <img id="playing-song-art" src="" alt="current song">
                         <h2 id="song">Love</h2>
                         <h3 id="artist">Bensound</h3>
-                        <div id="progress-bar">
-                            <progress id="progress" name="progress" max="100" value="20">
-                            <progress>  
+                        <div id="progress-bar" data-currentTime="00:00"
+                        data-songLength="00:00" >
+                            <progress id="progress" name="progress"  value="20">
+                            </progress>
                         </div>
                     </div>
                 </div>
@@ -34,10 +35,8 @@
                             <span class="material-icons-outlined">replay_10 </span>
                         </button>
                         <button id="btnPlay" class="buttons" href="#">
-                            <span class="material-icons-outlined">play_arrow </span>
+                            <span id="play-span" class="material-icons-outlined">play_arrow </span>
                         </button>
-                        <button id="btnPause" class="buttons" href="#">
-                            <span class="material-icons-outlined">pause </span>
                         </button>
                         <button id="btnStop" class="buttons" href="#">
                             <span class="material-icons-outlined">stop </span>
@@ -53,21 +52,13 @@
             <section id="playlist-area">
                 <div id="playlist-container">
                     <ul id="playlist">
-                        <li class="playlist-item active"><img src="./media/thumbnails/love.jpg" alt="a rose laying on pages of a book"> <p>Love</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/relaxing.jpg" alt="a dock between mountains on a lake"> <p>Relaxing</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/jazz.jpg" alt="A double bass"> <p>The Jazz Piano</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/countryboy.jpg" alt="Wheat fields"> <p>Countryboy</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/ukelele.jpg" alt="A Ukelele"> <p>Ukelele</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/a-new-beginning.jpg" alt="An hourglass in sand"> <p>A New Beginning</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/instinct.jpg" alt="Waves of water"> <p>Instinct</p> <p class="playlist-artist">Bensound</p> </li>
-                        <li class="playlist-item"><img src="./media/thumbnails/creative-minds.jpg" alt="A hand holding a lightbulb"> <p>Creative Minds</p> <p class="playlist-artist">Bensound</p> </li>
+                        
                     </ul>
                 </div>
             </section>
         </div>  
-        <audio id="audio-player" src="media/music/love.mp3" controls></audio>
+        <audio id="audio-player" src="" controls></audio>
     </main>
-
-    <script src="js/main.js" type="module"></script>
+<script src= "js/main.js" type="module"></script>
 </body>
 </html>
