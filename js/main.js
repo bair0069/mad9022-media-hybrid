@@ -1,15 +1,13 @@
-import {toggleAnimation, stopAnimation, updateTime, updateSongLength, createPlaylist,audio, currentTrack,nextSong} from './controls.js';
+import {createPlaylist,audio, currentTrack,nextSong} from './controls.js';
 import{songs} from './songs.js';
-import{ updateSongInfo} from './visuals.js'
+import{stopAnimation, toggleAnimation, updateSongInfo, updateSongLength, updateTime,} from './visuals.js'
 
 
 
 
 /* - - - - - - - - - - - - - - - ******* TODO:********* - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  
-- - - - - - - - - - - - Adjust code to import variables,functions only once - - - - - - 
- - - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
- - - - - - - - - - - -  Custom Colour progress bar  - - - - - - - - - 
+- - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
 */
 function playSong(){
     toggleAnimation()

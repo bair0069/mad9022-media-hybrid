@@ -189,11 +189,29 @@ main img {
     grid-area: Bar;
 }
 
-#progress-bar progress {
-    background-color: var(--black);
-    color:var(--clouds);
-    border:none;
+#progress {
+    -webkit-appearance:none;
+    background-color:var(--wood);
+    border-radius: 1rem;
+
+    -moz-appearance: none;
 }
+/*- - - - - Chrome Progress Bar - - - - */
+#progress::-webkit-progress-bar {
+    border-radius: 1rem;
+    background-color: var(--wood);
+}
+#progress::-webkit-progress-value {
+    border-radius: 1rem;
+    background-image: radial-gradient(var(--stone),var(--water));    
+}
+
+/*- - - - - Mozilla Progress Bar - - - - */
+
+#progress::-moz-progress-bar {
+    background-image: radial-gradient(var(--stone),var(--water));
+}
+
 
 #progress-bar::after {
     position: relative;

@@ -53,7 +53,6 @@ function secondsToMinutes (time) {      // convert time to seconds and minutes
 let minutes = Math.floor(time/60); // divide seconds by 60
 let seconds = Math.round((time-minutes*60)); // subtract minutes from (se)
 let timeConverted= `${minutes}:${seconds.toString().padStart(2,'0')}`;
-console.log(seconds)
 return timeConverted
 }
 
