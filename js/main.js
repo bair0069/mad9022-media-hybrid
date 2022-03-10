@@ -8,6 +8,7 @@ import{stopAnimation, toggleAnimation, updateSongInfo, updateSongLength, updateT
 /* - - - - - - - - - - - - - - - ******* TODO:********* - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  
 - - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
+- - - - - - - - - - - Fix Volume Controls
 */
 function playSong(){
     toggleAnimation()
