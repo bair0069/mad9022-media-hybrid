@@ -86,7 +86,7 @@ small,
 /* - - - - - - - - - - - - - - - - - Utilities - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #audio-player {
-  /* display:none; */
+  display:none;
 }
 
 /* - - - - - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - - - - - - - - - */
