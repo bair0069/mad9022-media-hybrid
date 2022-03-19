@@ -301,6 +301,7 @@ progress {
   border: none;
 }
 .playlist-item img {
+  border-radius: 0rem;
   width: min(8rem, 100%);
 }
 .playlist-item .active img {
@@ -382,7 +383,7 @@ progress {
     gap: 1rem;
   }
 
-  /* - - - - - - - - Player - - - - - - - - -*/
+  /* - - - - - - - - Playlist - - - - - - - - -*/
 
   #playlist {
     padding: 0;

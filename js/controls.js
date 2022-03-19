@@ -15,7 +15,8 @@ let songIndexes = songs.map((item) => {
 });
 let audio = document.getElementById("audio-player");
 let player = document.getElementById("player");
-let controls = document.getElementById("controls");
+let controls = document.getElementById("controls")
+let mute = document.getElementById("btnMute");
 let currentTrack = 0;
 
 /* - - - - - - - - - - - - - - Event Listeners - - - - - - - - - - - - - - */
@@ -170,6 +171,7 @@ function volumeDown() {
 function toggleMute(){
     audio.muted ? audio.muted=false : audio.muted = true
     controls.classList.toggle("muted")
+    controls.classList.contains("muted")? mute.innerHTML ="<span class=material-icons-outlined>volume_off</span>": mute.innerHTML ="<span class=material-icons-outlined>volume_mute</span>"
 }
 
 //  - - - - - - - - - - - - - - - - - - - Playlist Creation - - - - - - - - - - - -
