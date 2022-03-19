@@ -222,7 +222,7 @@ main img {
   width: 1rem;
   position: relative;
   right: 1.25rem;
-  content: attr(data-currentTime);
+  content:attr(data-currentTime);
 }
 
 progress {
@@ -260,6 +260,16 @@ progress {
   cursor: pointer;
   background-color: var(--black);
   color: var(--clouds);
+}
+
+#controls.muted #btnMute {
+  color:var(--clouds);
+  background-color: var(--stone);
+}
+
+#controls #btnMute {
+  color:var(--black);
+  background-color: var(--clouds);
 }
 
 /* - - - - - - - - - - - Playlist - - - - - - - - - -*/
