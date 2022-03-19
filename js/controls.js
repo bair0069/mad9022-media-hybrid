@@ -34,12 +34,12 @@ window.addEventListener('keydown',(ev)=>{ // listen for key presses in the windo
         case 'ArrowLeft' :
             previousSong()
             break;
-        // case 'ArrowUp' :
-        //     volumeUp()
-        //     break;
-        // case 'ArrowDown':
-        //     volumeDown()
-        //     break;  
+        case 'ArrowUp' :
+            volumeUp()
+            break;
+        case 'ArrowDown':
+            volumeDown()
+            break;  
     }
 
 })
@@ -138,13 +138,13 @@ function nextSong() { // go forward a song
             switchSong(currentTrack) //update active item, and play new song (full comments in visuals.js line 32)
 }
 
-// function volumeUp(){ //check if volume is less than 1 increase volume
-//     audio.volume <= 1 ? audio.volume += .05 : console.log('Max Volume')
-// }
+function volumeUp(){ //check if volume is less than 1 increase volume
+    audio.volume <= 1 ? audio.volume += .05 : console.log('Max Volume')
+}
 
-// function volumeDown(){ // check if volume is less than 0 decrease volume
-//     audio.volume >= 0 ? audio.volume -=.05 : console.log('Min Volume')
-// }
+function volumeDown(){ // check if volume is less than 0 decrease volume
+    audio.volume >= -0.1 ? audio.volume -=.05 : console.log('Min Volume')
+}
 
 
 //  - - - - - - - - - - - - - - - - - - - Playlist Creation - - - - - - - - - - - - 

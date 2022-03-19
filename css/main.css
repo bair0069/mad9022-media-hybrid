@@ -155,7 +155,7 @@ main img {
 
     25%{
         transform:  rotate(.25turn)
-                    scale(65%)
+                    scale(55%)
     }
     50%{
         transform:  rotate(.5turn)
@@ -163,7 +163,7 @@ main img {
     }
     75%{
         transform:  rotate(.75turn)
-                    scale(65%)
+                    scale(55%)
     }
 
     100%{ transform:  rotate(1turn)
