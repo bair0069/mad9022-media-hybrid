@@ -209,6 +209,7 @@ main img {
 /*- - - - - Mozilla Progress Bar - - - - */
 
 #progress::-moz-progress-bar {
+  border-radius: 1rem;
   background-image: radial-gradient(var(--stone), var(--water));
 }
 
@@ -252,14 +253,16 @@ progress {
   height: max(3rem, 100%);
   transition: 0.25s ease-out;
 }
-.buttons:active {
-  background-color: rgb(160, 160, 160);
-}
+
 .buttons:hover,
 .buttons:target {
   cursor: pointer;
-  background-color: var(--black);
+  background-color: var(--water);
   color: var(--clouds);
+}
+
+.buttons:active{
+  background-color: rgb(160, 160, 160);
 }
 
 #controls.muted #btnMute {
@@ -267,10 +270,6 @@ progress {
   background-color: var(--stone);
 }
 
-#controls #btnMute {
-  color:var(--black);
-  background-color: var(--clouds);
-}
 
 /* - - - - - - - - - - - Playlist - - - - - - - - - -*/
 

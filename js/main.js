@@ -13,6 +13,8 @@ import{stopAnimation, toggleAnimation, updateSongInfo, updateSongLength, updateT
 
 - - - - - - - - - - - Fix Volume Controls - - - - - - - 
 
+ - -  - - - - - - - - Tape Deck Mode  - - - - - - - 
+
 
 */
 function playSong(){
