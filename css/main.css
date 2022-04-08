@@ -1,383 +1,395 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400');
-
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400");
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*::before,*::after{
-    box-sizing: inherit;
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
-    display: unset;
-    margin:0;
+  display: unset;
+  margin: 0;
 }
-
 
 /* - - - - - - - - - - - - - - - - - Font Styles - - - - - - - - - - - - - - - - - - - - - - - - */
 
 html {
-    font-size: 100%;
+  font-size: 100%;
 } /*16px*/
 
 body {
-    background: white;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 400;
-    line-height: 1.75;
-    color: #000000;
+  background: white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #000000;
 }
 
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-h1, h2, h3, h4, h5 {
-    margin:0;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 400;
-    line-height: 1.3;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 h1 {
-    margin-top: 0;
-    font-size: 2.488rem;
+  margin-top: 0;
+  font-size: 2.488rem;
 }
 
 h2 {
-    font-size: 2.074rem;
+  font-size: 2.074rem;
 }
 
 h3 {
-    font-size: 1.728rem;
+  font-size: 1.728rem;
 }
 
 h4 {
-    font-size: 1.44rem;
+  font-size: 1.44rem;
 }
 
 h5 {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
-small, .text_small {
-    font-size: 0.833rem;
+small,
+.text_small {
+  font-size: 0.833rem;
 }
 
 .material-icons-outlined {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 /* - - - - - - - - - - - - - - - - - Colors - - - - - - - - - - - - - - - - - - - - - - - - */
 
 :root {
-    --water:#6A767C;
-    --wood:#1d0c00;
-    --stone:#A69C98;
-    --clouds:#f8ffff;
-    --black:#111015;
+  --water: #6a767c;
+  --wood: #1d0c00;
+  --stone: #a69c98;
+  --clouds: #f8ffff;
+  --black: #111015;
 }
 
 /* - - - - - - - - - - - - - - - - - Utilities - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #audio-player {
-    /* display:none; */
+  display:none;
 }
-
 
 /* - - - - - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - - - - - - - - - */
 
 header {
-    padding:0rem 0.5rem;
-    background-color: var(--water);
-    background: linear-gradient(var(--water),var(--stone));
+  padding: 0rem 0.5rem;
+  background-color: var(--water);
+  background: linear-gradient(var(--water), var(--stone));
 }
 
 header h1 {
-    color:var(--black);
-    font-family: 'Dongle', sans-serif;
-    font-weight: lighter;
+  color: var(--black);
+  font-family: "Dongle", sans-serif;
+  font-weight: lighter;
 }
 
 /* - - - - - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - - - - - - - - - */
 
 main {
-    background-color: var(--water);
+  background-color: var(--water);
 }
 
 main img {
-    border-radius:.25rem;
+  border-radius: 0.25rem;
 }
 
 /*  - - - - - - - - - Player - - - - - - - - - - - - - - */
 
 #player-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin:0;
-    padding:1rem;
-    background-position:bottom;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),url("../media/thumbnails/love.jpg");
-    color:var(--clouds);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.774)),
+    url("../media/thumbnails/love.jpg");
+  color: var(--clouds);
 }
 
 /* - - - - - - - - - - - Visual - - - - - - - - - -*/
 
 #visual {
-    display:grid;
-    grid-template-areas:
+  display: grid;
+  grid-template-areas:
     "art"
     "Song"
     "Artist"
     "Bar";
-    justify-items: center;
+  justify-items: center;
 }
 
 #playing-song-art {
-    grid-area: art;
-    justify-self: center;
-    width:min(10rem,100%);
+  grid-area: art;
+  justify-self: center;
+  width: min(10rem, 100%);
 }
 
-#playing-song-art.active{
-    animation: 10s spin .5s normal forwards infinite;
+#playing-song-art.active {
+  animation: 3s spin 0.5s ease-in-out forwards infinite;
 }
 
 @keyframes spin {
-    0%{ 
-        transform:  rotate(0turn)
-                    scale(100%);
-    }
+  0% {
+    transform: rotate(0turn) scale(100%);
+  }
 
-    25%{
-        transform:  rotate(.25turn)
-                    scale(65%)
-    }
-    50%{
-        transform:  rotate(.5turn)
-                    scale(50%)
-    }
-    75%{
-        transform:  rotate(.75turn)
-                    scale(65%)
-    }
+  25% {
+    transform: rotate(0.25turn) scale(55%);
+  }
+  50% {
+    transform: rotate(0.5turn) scale(50%);
+  }
+  75% {
+    transform: rotate(0.75turn) scale(55%);
+  }
 
-    100%{ transform:  rotate(1turn)
-                    scale(100%)}
-    }
-
+  100% {
+    transform: rotate(1turn) scale(100%);
+  }
+}
 
 #artist {
-    grid-area: Artist;
-    margin:0;
+  grid-area: Artist;
+  margin: 0;
 }
 
 #song {
-    grid-area: Song;
-    margin:0;
+  grid-area: Song;
+  margin: 0;
 }
 
 /* - - - - - - - - - - - Progress Bar - - - - - - - - - -*/
 
 #progress-bar {
-    display:flex;
-    justify-self: space-between;
-    grid-area: Bar;
+  display: flex;
+  justify-self: space-between;
+  grid-area: Bar;
 }
 
 #progress {
-    -webkit-appearance:none;
-    background-color:var(--wood);
-    border-radius: 1rem;
+  -webkit-appearance: none;
+  background-color: var(--wood);
+  border-radius: 1rem;
 
-    -moz-appearance: none;
+  -moz-appearance: none;
 }
 /*- - - - - Chrome Progress Bar - - - - */
 #progress::-webkit-progress-bar {
-    border-radius: 1rem;
-    background-color: var(--wood);
+  border-radius: 1rem;
+  background-color: var(--wood);
 }
 #progress::-webkit-progress-value {
-    border-radius: 1rem;
-    background-image: radial-gradient(var(--stone),var(--water));    
+  border-radius: 1rem;
+  background-image: radial-gradient(var(--stone), var(--water));
 }
 
 /*- - - - - Mozilla Progress Bar - - - - */
 
 #progress::-moz-progress-bar {
-    background-image: radial-gradient(var(--stone),var(--water));
+  border-radius: 1rem;
+  background-image: radial-gradient(var(--stone), var(--water));
 }
 
-
 #progress-bar::after {
-    position: relative;
-    padding-left:.5rem;
-    content:attr(data-songLength);
+  position: relative;
+  padding-left: 0.5rem;
+  content: attr(data-songLength);
 }
 
 #progress-bar::before {
-    width:1rem;
-    position: relative;
-    right:1.25rem; 
-    content:attr(data-currentTime)
+  width: 1rem;
+  position: relative;
+  right: 1.25rem;
+  content:attr(data-currentTime);
 }
 
 progress {
-    height:.6rem;
-    margin-bottom:1.5rem;
+  height: 0.6rem;
+  margin-bottom: 1.5rem;
 }
 
 /* - - - - - - - - - - - Controls - - - - - - - - - -*/
 
 #controls {
-    width: 100%;
-    display: flex;
-    justify-content:center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color:var(--clouds);
-    color:var(--black);
-    width:100%;
-    border-radius:.5rem;
-    border-style:ridge;
-    height: max(3rem,100%);
-    transition: .25s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--clouds);
+  color: var(--black);
+  width: 100%;
+  border-radius: 0.5rem;
+  border-style: ridge;
+  height: max(3rem, 100%);
+  transition: 0.25s ease-out;
 }
-.buttons:active {
-    background-color:rgb(160, 160, 160);
+
+.buttons:hover,
+.buttons:target {
+  cursor: pointer;
+  background-color: var(--water);
+  color: var(--clouds);
 }
-.buttons:hover,.buttons:target {
-    cursor: pointer;
-    background-color:var(--black);
-    color:var(--clouds);
+
+.buttons:active{
+  background-color: rgb(160, 160, 160);
 }
+
+#controls.muted #btnMute {
+  color:var(--clouds);
+  background-color: var(--stone);
+}
+
 
 /* - - - - - - - - - - - Playlist - - - - - - - - - -*/
 
 #playlist-area {
-    background-color: var(--wood);
-    
+  background-color: var(--wood);
 }
 #playlist {
-    margin:0 auto;
-    padding:1rem;
-    list-style: none;
+  margin: 0 auto;
+  padding: 1rem;
+  list-style: none;
 }
 
-
 .playlist-item {
-    background-color: var(--clouds);
-    font-size: 1.15rem;
-    border-bottom: solid.05rem var(--stone);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
+  background-color: var(--clouds);
+  font-size: 1.15rem;
+  border-bottom: solid.05rem var(--stone);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
 
 .playlist-item.active {
-    background-color:var(--water);
-    color:var(--clouds);
+  background-color: var(--water);
+  color: var(--clouds);
 }
 
 .playlist-item:last-child {
-    border:none;
+  border: none;
 }
 .playlist-item img {
-    width:min(8rem,100%);
+  border-radius: 0rem;
+  width: min(8rem, 100%);
 }
 .playlist-item .active img {
-    width:min(8rem,100%);
+  width: min(8rem, 100%);
 }
 
 .playlist-item p {
-    text-align: center;
-    margin:0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .playlist-artist {
-    justify-self: flex-end;
-    color:var(--black)
+  justify-self: flex-end;
+  color: var(--black);
 }
 
 /* - - - - - - - - - - - - - - - - - Responsive Layouts - - - - - - - - - - - - - - - - - - - - - - - - */
 
-@media only screen and (min-width:45em) { /*- - - - - - - - - - - - Tablet Sizing - - - - - - - - - - */
+@media only screen and (min-width: 45em) {
+  /*- - - - - - - - - - - - Tablet Sizing - - - - - - - - - - */
 
-/* - - - - - - - - Font Styles - - - - - - - - -*/
+  /* - - - - - - - - Font Styles - - - - - - - - -*/
 
-html {font-size: 120%;} /*16px*/
+  html {
+    font-size: 120%;
+  } /*16px*/
 
-.material-icons-outlined {
+  .material-icons-outlined {
     font-size: 1.5rem;
+  }
+
+  #playing-song-art {
+    width: min(100rem, 100%);
+  }
 }
+@media only screen and (min-width: 70em) {
+  /*- - - - - - - - - - - - Desktop Sizing - - - - - - - - - - */
 
-#playing-song-art {
-    width:min(100rem,100%);
-}
-    
-}
-@media only screen and (min-width:70em) { /*- - - - - - - - - - - - Desktop Sizing - - - - - - - - - - */
+  /* - - - - - - - - Font Styles - - - - - - - - -*/
 
-/* - - - - - - - - Font Styles - - - - - - - - -*/
+  html {
+    font-size: 150%;
+  } /*16px*/
 
-html {font-size: 150%;} /*16px*/
-
-.material-icons-outlined {
+  .material-icons-outlined {
     font-size: 2rem;
-}
-/* - - - - - - - - - - - Header - - - - - - - - - - - - -*/
+  }
+  /* - - - - - - - - - - - Header - - - - - - - - - - - - -*/
 
-header {
-    height:0rem;
-}
+  header {
+    height: 0rem;
+  }
 
-header h1 {
-    display:block;
-    position:fixed;
-    top:0rem;
-    left:1rem;
-    z-index:1000;
-    color:var(--clouds);
-}
+  header h1 {
+    display: block;
+    position: fixed;
+    top: 0rem;
+    left: 1rem;
+    z-index: 1000;
+    color: var(--clouds);
+  }
 
-    
-/* - - - - - - - - - - - Main - - - - - - - - - - - - -*/
+  /* - - - - - - - - - - - Main - - - - - - - - - - - - -*/
 
-.music-body {
-    outline:solid black 1rem;
+  .music-body {
+    outline: solid black 1rem;
     display: grid;
     grid-template-columns: 45% 55%;
-}
+  }
 
-/* - - - - - - - - Player - - - - - - - - -*/
+  /* - - - - - - - - Player - - - - - - - - -*/
 
-#player-area {
+  #player-area {
     align-items: center;
     justify-content: space-around;
-}
+  }
 
-#visual {
-    gap:1rem;
-}
+  #visual {
+    gap: 1rem;
+  }
 
-/* - - - - - - - - Player - - - - - - - - -*/
+  /* - - - - - - - - Playlist - - - - - - - - -*/
 
-#playlist {
-    padding:0;
-    padding-right:0rem;
+  #playlist {
+    padding: 0;
+    padding-right: 0rem;
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
-}
+  }
 }

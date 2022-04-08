@@ -8,7 +8,14 @@ import{stopAnimation, toggleAnimation, updateSongInfo, updateSongLength, updateT
 /* - - - - - - - - - - - - - - - ******* TODO:********* - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  
 - - - - - - - - - - - Draggable progress bar   - - - - - - - - - - 
+- - - - - - - - - - - Add Volume Slider - - - - - - - 
+- - - - - - - - - - - Add volume_off, volume_mute Mute Button - - - - - - - 
+
 - - - - - - - - - - - Fix Volume Controls - - - - - - - 
+
+ - -  - - - - - - - - Tape Deck Mode  - - - - - - - 
+
+
 */
 function playSong(){
     toggleAnimation()

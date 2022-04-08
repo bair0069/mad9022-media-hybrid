@@ -68,7 +68,6 @@ function updateSongLength () {          //update the length of the song when son
     progressBar.setAttribute('data-songLength',secondsToMinutes(audio.duration))
 }
 
-
 function updateSongInfo (index) { //update player background, song title, artist
     playlistSongs[index].classList.add('active')    // add active class to playlist-item
     audio.setAttribute('src',songs[index].src)      // set audio.src to the new source
