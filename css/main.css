@@ -285,7 +285,7 @@ progress {
 .playlist-item {
   background-color: var(--clouds);
   font-size: 1.15rem;
-  border-bottom: solid.05rem var(--stone);
+  border-bottom: solid .05rem var(--stone);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
